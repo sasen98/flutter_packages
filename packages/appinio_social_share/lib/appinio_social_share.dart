@@ -42,9 +42,9 @@ class AppinioSocialShare {
     return AppinioSocialSharePlatform.instance.copyToClipBoard(message);
   }
 
-  Future<String> shareToFacebook(String hashtag, String filePath) {
+  Future<String> shareToFacebook(String hashtag) {
     return AppinioSocialSharePlatform.instance
-        .shareToFacebook(hashtag, filePath);
+        .shareToFacebook(hashtag);
   }
 
   Future<String> shareToInstagramStory(

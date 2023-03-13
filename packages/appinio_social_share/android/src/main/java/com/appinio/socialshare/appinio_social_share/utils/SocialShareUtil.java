@@ -178,7 +178,8 @@ public class SocialShareUtil {
     }
 
 
-    public void shareToFacebook(String imagePath, String text, Activity activity, MethodChannel.Result result) {
+//    public void shareToFacebook(String imagePath, String text, Activity activity, MethodChannel.Result result) {
+    public void shareToFacebook(String text, Activity activity, MethodChannel.Result result) {
         FacebookSdk.sdkInitialize(activity.getApplicationContext());
         callbackManager = callbackManager == null ? CallbackManager.Factory.create() : callbackManager;
         ShareDialog shareDialog = new ShareDialog(activity);
@@ -200,13 +201,13 @@ public class SocialShareUtil {
                 result.success(ERROR);
             }
         });
-        File file = new File(imagePath);
-        Uri fileUri = FileProvider.getUriForFile(activity, activity.getApplicationContext().getPackageName() + ".provider", file);
-        List<SharePhoto> sharePhotos = new ArrayList<>();
-        sharePhotos.add(new SharePhoto.Builder().setImageUrl(fileUri).build());
+//        File file = new File(imagePath);
+//        Uri fileUri = FileProvider.getUriForFile(activity, activity.getApplicationContext().getPackageName() + ".provider", file);
+//        List<SharePhoto> sharePhotos = new ArrayList<>();
+//        sharePhotos.add(new SharePhoto.Builder().setImageUrl(fileUri).build());
         SharePhotoContent content = new SharePhotoContent.Builder()
                 .setShareHashtag(new ShareHashtag.Builder().setHashtag(text).build())
-                .setPhotos(sharePhotos)
+//                .setPhotos(sharePhotos)
                 .build();
         if (ShareDialog.canShow(SharePhotoContent.class)) {
             shareDialog.show(content);

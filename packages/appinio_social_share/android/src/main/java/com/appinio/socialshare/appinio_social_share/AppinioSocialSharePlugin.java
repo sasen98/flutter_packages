@@ -95,7 +95,8 @@ public class AppinioSocialSharePlugin implements FlutterPlugin, MethodCallHandle
                 return socialShareUtil.shareToMessenger(message, activeContext);
             case FACEBOOK:
                 if (activity == null) return SocialShareUtil.ERROR;
-                socialShareUtil.shareToFacebook(imagePath, message, activity, result);
+                socialShareUtil.shareToFacebook( message, activity, result);
+//                socialShareUtil.shareToFacebook(imagePath, message, activity, result);
                 return null;
             case WHATSAPP:
                 return socialShareUtil.shareToWhatsApp(imagePath, message, activeContext);
